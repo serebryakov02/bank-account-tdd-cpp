@@ -17,7 +17,7 @@ enable_testing()
 
 add_executable(
   bank-account-tdd-cpp
-  BankAccountTests.cpp
+  tests/BankAccountTests.cpp
 )
 
 target_include_directories(
