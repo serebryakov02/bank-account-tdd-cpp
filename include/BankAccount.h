@@ -4,17 +4,19 @@
 class BankAccount
 {
     double m_balance;
-    static const size_t Count { 0 };
+    static size_t Count;
     size_t m_accountNumber;
 
 public:
     BankAccount()
      : m_balance(0.0), m_accountNumber(0) { 
-        m_accountNumber = Count + 1;
+        m_accountNumber = ++Count;
     }
 
     double getBalance() const { return m_balance; }
     size_t getAccountNumber() const { return m_accountNumber; }
 };
+
+size_t BankAccount::Count = 0;
 
 #endif
