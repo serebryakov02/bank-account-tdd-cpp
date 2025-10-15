@@ -1,0 +1,5 @@
+if(EXISTS "/Users/mykytaserebriakov/git/bank-account-tdd-cpp/build/bank-account-tdd-cpp[1]_tests.cmake")
+  include("/Users/mykytaserebriakov/git/bank-account-tdd-cpp/build/bank-account-tdd-cpp[1]_tests.cmake")
+else()
+  add_test(bank-account-tdd-cpp_NOT_BUILT bank-account-tdd-cpp_NOT_BUILT)
+endif()

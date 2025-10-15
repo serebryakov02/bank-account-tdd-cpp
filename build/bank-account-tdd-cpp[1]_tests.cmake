@@ -1,0 +1,3 @@
+add_test([=[BankAccount.BalanceIsZeroOnCreation]=]  /Users/mykytaserebriakov/git/bank-account-tdd-cpp/build/bank-account-tdd-cpp [==[--gtest_filter=BankAccount.BalanceIsZeroOnCreation]==] --gtest_also_run_disabled_tests)
+set_tests_properties([=[BankAccount.BalanceIsZeroOnCreation]=]  PROPERTIES WORKING_DIRECTORY /Users/mykytaserebriakov/git/bank-account-tdd-cpp/build SKIP_REGULAR_EXPRESSION [==[\[  SKIPPED \]]==])
+set(  bank-account-tdd-cpp_TESTS BankAccount.BalanceIsZeroOnCreation)
