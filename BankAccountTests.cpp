@@ -7,3 +7,9 @@ TEST(BankAccount, BalanceIsZeroOnCreation)
     BankAccount account;
     ASSERT_THAT(account.getBalance(), testing::Eq(0.0));
 }
+
+TEST(BankAccount, AccountNumberIsAssigned) 
+{
+    BankAccount account;
+    ASSERT_THAT(account.getAccountNumber(), Eq(1));
+}
