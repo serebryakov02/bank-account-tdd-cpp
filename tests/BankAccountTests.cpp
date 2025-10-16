@@ -79,3 +79,39 @@ TEST_F(BankAccountTest, WithdrawZeroDoesNotChangeBalance)
     account.withdraw(withdraw);
     ASSERT_THAT(account.getBalance(), Eq(deposit));
 }
+
+TEST_F(BankAccountTest, WithdrawNegativeDoesNotChangeBalance)
+{
+    double deposit = 150.0;
+    account.deposit(deposit);
+    double withdraw = -50.0;
+    account.withdraw(withdraw);
+    ASSERT_THAT(account.getBalance(), Eq(deposit));
+}
+
+TEST_F(BankAccountTest, WithdrawMoreThanBalanceDoesNotChangeBalance)
+{
+    double deposit = 150.0;
+    account.deposit(deposit);
+    double withdraw = 250.0;
+    account.withdraw(withdraw);
+    ASSERT_THAT(account.getBalance(), Eq(deposit));
+}
+
+TEST_F(BankAccountTest, WithdrawLessThanBalanceDecreasesBalance)
+{
+    double deposit = 150.0;
+    account.deposit(deposit);
+    double withdraw = 50.0;
+    account.withdraw(withdraw);
+    ASSERT_THAT(account.getBalance(), Eq(deposit - withdraw));
+}
+
+TEST_F(BankAccountTest, WithdrawAllBalanceLeavesZero)
+{
+    double deposit = 150.0;
+    account.deposit(deposit);
+    double withdraw = 150.0;
+    account.withdraw(withdraw);
+    ASSERT_THAT(account.getBalance(), Eq(0.0));
+}
