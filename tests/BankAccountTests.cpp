@@ -115,3 +115,19 @@ TEST_F(BankAccountTest, WithdrawAllBalanceLeavesZero)
     account.withdraw(withdraw);
     ASSERT_THAT(account.getBalance(), Eq(0.0));
 }
+
+TEST_F(BankAccountTest, PrintInfoPrintsAccountInfo)
+{
+    testing::internal::CaptureStdout(); // Redirect std::cout to gtest's capture buffer.
+    account.deposit(250.0);
+    account.printInfo();
+    std::string output = testing::internal::GetCapturedStdout(); // Retrieve the captured stdout contents.
+
+    std::string expected =
+          "+-------------------------+\n"
+          "Account #1\n"
+          "Balance: 250\n"
+          "+-------------------------+\n";
+
+    ASSERT_THAT(output, Eq(expected));
+}

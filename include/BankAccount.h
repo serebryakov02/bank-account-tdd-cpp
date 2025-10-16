@@ -7,6 +7,11 @@ class BankAccount
     static size_t Count;
     size_t m_accountNumber;
 
+    void printLine() const 
+    {
+        std::cout << "+-------------------------+\n";
+    }
+
 public:
     BankAccount()
      : m_balance(0.0), m_accountNumber(0) { 
@@ -21,6 +26,13 @@ public:
     void withdraw(double amount) {
         if (amount > 0 && amount <= m_balance)
             m_balance -= amount;
+    }
+
+    void printInfo() const {
+        printLine();
+        std::cout << "Account #" << m_accountNumber
+                    << "\nBalance: " << m_balance << '\n';
+        printLine();
     }
 
     double getBalance() const { return m_balance; }
