@@ -35,6 +35,13 @@ TEST_F(BankAccountTest, DepositDoesNotChangeBalanceWhenAmountIsNegative)
     ASSERT_THAT(account.getBalance(), Eq(0.0));
 }
 
+TEST_F(BankAccountTest, DepositDoesNotChangeBalanceWhenAmountIsZero)
+{
+    double deposit = 0.0;
+    account.deposit(deposit);
+    ASSERT_THAT(account.getBalance(), Eq(0.0));
+}
+
 TEST_F(BankAccountTest, DepositIncreasesBalance)
 {
     double deposit = 150.0;
