@@ -49,9 +49,6 @@ TEST_F(BankAccountTest, DepositIncreasesBalance)
     ASSERT_THAT(account.getBalance(), Eq(deposit));
 }
 
-// This is a bit repetative, and I could probably just make another
-// deposit in the previous test, but each test should describe one
-// specific bahavior. What if I do not have access to the client's code?
 TEST_F(BankAccountTest, DepositMultipleTimesIncreasesBalance)
 {
     double deposit1 = 150.0;
@@ -59,4 +56,17 @@ TEST_F(BankAccountTest, DepositMultipleTimesIncreasesBalance)
     account.deposit(deposit1);
     account.deposit(deposit2);
     ASSERT_THAT(account.getBalance(), Eq(deposit1 + deposit2));
+}
+
+TEST_F(BankAccountTest, DepositMultipleTimesIncludingNegativeAndZeroIncreasesBalance)
+{
+    double deposit1 = 150.0;
+    double deposit2 = -50.0;
+    double deposit3 = 0.0;
+    double deposit4 = 350.0;
+    account.deposit(deposit1);
+    account.deposit(deposit2);
+    account.deposit(deposit3);
+    account.deposit(deposit4);
+    ASSERT_THAT(account.getBalance(), Eq(deposit1 + deposit4));
 }
