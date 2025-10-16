@@ -27,3 +27,17 @@ TEST_F(BankAccountTest, UniqueAccountNumberIsAssignedWhenCreated)
     BankAccount account3;
     ASSERT_THAT(account3.getAccountNumber(), Eq(3));
 }
+
+TEST_F(BankAccountTest, DepositDoesNotChangeBalanceWhenAmountIsNegative)
+{
+    double deposit = -150.0;
+    account.deposit(deposit);
+    ASSERT_THAT(account.getBalance(), Eq(0.0));
+}
+
+TEST_F(BankAccountTest, DepositIncreasesBalance)
+{
+    double deposit = 150.0;
+    account.deposit(deposit);
+    ASSERT_THAT(account.getBalance(), Eq(deposit));
+}

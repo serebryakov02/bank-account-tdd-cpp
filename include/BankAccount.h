@@ -13,6 +13,11 @@ public:
         m_accountNumber = ++Count;
     }
 
+    void deposit(double amount) {
+        if (amount > 0)
+            m_balance += amount;
+    }
+
     double getBalance() const { return m_balance; }
     size_t getAccountNumber() const { return m_accountNumber; }
 };
