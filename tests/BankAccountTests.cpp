@@ -70,3 +70,12 @@ TEST_F(BankAccountTest, DepositMultipleTimesIncludingNegativeAndZeroIncreasesBal
     account.deposit(deposit4);
     ASSERT_THAT(account.getBalance(), Eq(deposit1 + deposit4));
 }
+
+TEST_F(BankAccountTest, WithdrawZeroDoesNotChangeBalance)
+{
+    double deposit = 150.0;
+    account.deposit(deposit);
+    double withdraw = 0.0;
+    account.withdraw(withdraw);
+    ASSERT_THAT(account.getBalance(), Eq(deposit));
+}

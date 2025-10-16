@@ -18,6 +18,11 @@ public:
             m_balance += amount;
     }
 
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= m_balance)
+            m_balance -= amount;
+    }
+
     double getBalance() const { return m_balance; }
     size_t getAccountNumber() const { return m_accountNumber; }
 };
